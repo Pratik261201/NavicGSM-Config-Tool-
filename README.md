@@ -1,4 +1,3 @@
-Here's an updated version of your **main `README.md`** file with proper structure, refined language, and a new section documenting the **`navic_receiver/`** folder and its purpose.
 
 ---
 
