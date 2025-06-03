@@ -1,4 +1,4 @@
-Great! Here's a **complete `README.md`** file for your `navic_receiver` folder that documents your Python code for receiving and identifying NavIC signals from a GNSS module.
+ `navic_receiver` folder that documents your Python code for receiving and identifying NavIC signals from a GNSS module.
 
 ---
 
