@@ -1,74 +1,135 @@
-# NavicGSM-Config-Tool
+Here's an updated version of your **main `README.md`** file with proper structure, refined language, and a new section documenting the **`navic_receiver/`** folder and its purpose.
 
-Tools and scripts to configure Navic GSM / GNSS module parameters such as baud rate, serial port settings, and more.
+---
 
-## Structure
+### ✅ Updated `README.md` for `NavicGSM-Config-Tool`
 
-- `baud_rate_config/`: Scripts to change and test baud rates.
-- `parameter_config/`: Scripts to change and test other module parameters.
-- `utils/`: Helper functions for serial communication and checksums.
-- `docs/`: Documentation about commands and usage.
+````markdown
+# 🛰️ NavicGSM-Config-Tool
 
-# How to Use This Repository
+Tools and scripts to configure NavIC GSM / GNSS module parameters such as baud rate, satellite filtering, and real-time signal monitoring.
 
-Follow these steps to get started:
+---
 
-## 1. Clone the Repository
+## 📁 Project Structure
+
+| Folder | Purpose |
+|--------|---------|
+| `baud_rate_config/` | Scripts to change and test baud rates of supported GPS/GNSS modules. |
+| `parameter_config/` | Scripts to modify other module parameters (like NMEA sentence selection, update rate, etc.). |
+| `utils/` | Utility functions for serial communication, checksum calculation, and packet construction. |
+| `docs/` | Technical documentation on command formats, serial protocols, and module reference sheets. |
+| `navic_receiver/` | **New!** A self-contained project to receive and identify NavIC satellite signals using Python. Useful for validating NavIC support on your GNSS module.
+
+---
+
+## ⚙️ How to Use This Repository
+
+### 1. Clone the Repository
 
 ```bash
 git clone <repository-url>
 cd <repository-directory>
+````
 
-2. Create and Activate a Virtual Environment
-Create a new virtual environment named GPS:
+---
+
+### 2. Create and Activate a Virtual Environment
+
 ```bash
 python -m venv GPS
+```
 
-Activate the virtual environment:
+Activate the environment:
 
-Windows (PowerShell or Command Prompt):
+* **Windows:**
 
-```bash
-GPS\Scripts\activate
+  ```bash
+  GPS\Scripts\activate
+  ```
 
-macOS / Linux:
+* **macOS / Linux:**
 
-```bash
-source GPS/bin/activate
+  ```bash
+  source GPS/bin/activate
+  ```
 
-3. Navigate to the baud_rate_config Subfolder
-```bash
-cd baud_rate_config
-Inside this folder, you’ll find a separate README.md that describes the specific project details for changing the GPS baud rate. Be sure to review that file for project-specific instructions.
+---
 
-4. Install Dependencies:
+### 3. Navigate to a Subfolder Based on Your Task
 
-Within the baud_rate_config directory (or any other subfolder with its own requirements.txt), run:
+* To **change the GPS module baud rate**, go to:
+
+  ```bash
+  cd baud_rate_config
+  ```
+
+* To **receive and parse NavIC satellite signals**, go to:
+
+  ```bash
+  cd navic_receiver
+  ```
+
+Each folder contains its own `README.md` file that details the specific project usage and script instructions.
+
+---
+
+### 4. Install Required Dependencies
+
+From within any subfolder (e.g., `baud_rate_config`, `navic_receiver`) with a `requirements.txt` file, install dependencies:
+
 ```bash
 pip install -r requirements.txt
+```
 
-5. Run Scripts Inside Subfolders
-Each subfolder contains Python scripts relevant to its functionality. For example, in baud_rate_config you might see scripts like:
+---
 
-change_baudrate.py
-check_sum.py
-read_gps.py
+### 5. Run the Scripts
 
-To execute a script, simply run:
-```bash
-python <script_name>.py
-Example:
+Example from `baud_rate_config/`:
+
 ```bash
 python change_baudrate.py
+```
 
-Notes:
+Example from `navic_receiver/`:
 
-Always verify your COM port and current baud rate before running any script.
+```bash
+python navic_receive.py
+```
 
-The Attributes field in the command packet determines whether the change is saved persistently (1) or temporarily (0).
+---
 
-Use the check_sum.py script to calculate the checksum whenever you modify payloads.
+## 📌 Notes
 
-Ensure no other program is using the COM port during the operation (e.g., Arduino Serial Monitor, PuTTY).
+* Always verify your COM port and baud rate before executing any script.
+* The **Attributes field** in the GPS packet structure determines whether parameter changes are **temporary (0)** or **persistent (1)**.
+* Use `check_sum.py` (in `utils/`) to validate checksum values if you modify command payloads manually.
+* Ensure no other program (e.g., Arduino Serial Monitor, PuTTY) is using the serial port while running your scripts.
+
+---
+
+## 🛰️ Project Highlights
+
+1. **Baud Rate Configuration Tool**
+   Easily reconfigure the GNSS module's baud rate using standard protocol commands (e.g., `$PMTK`, `$PUBX`, `$CFG` depending on vendor).
+
+2. **NavIC Signal Receiver (New!)**
+   Real-time terminal-based system to identify NavIC satellites from live NMEA data.
+   Check `navic_receiver/README.md` for setup and use instructions.
+
+---
+
+## 🧠 License
+
+This repository is licensed under the [MIT License](https://opensource.org/licenses/MIT).
+
+---
+
+## 👨‍💻 Maintainer
+
+**Pratik Chouragadey**
+
+```
 
 
