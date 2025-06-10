@@ -1,9 +1,7 @@
 
----
-
 ### ✅ Updated `README.md` for `NavicGSM-Config-Tool`
 
-````markdown
+
 # 🛰️ NavicGSM-Config-Tool
 
 Tools and scripts to configure NavIC GSM / GNSS module parameters such as baud rate, satellite filtering, and real-time signal monitoring.
